@@ -1,0 +1,837 @@
+{
+	"info": {
+		"_postman_id": "0eab97ed-c095-43da-9a0f-89cfeaa815bc",
+		"name": "PBI-JubelioxRakamin-QAEngineer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29996477"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "positiveScenario",
+					"item": [
+						{
+							"name": "loginWithValidData",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko1@gmail.com\",\n    \"password\": \"Validpassword123!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negativeScenario",
+					"item": [
+						{
+							"name": "loginWithInvalidPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko1@gmail.com\",\n    \"password\": \"Invalidpassword123!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginWithLeavingThePasswordFieldEmpty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko1@gmail.com\",\n    \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginWithAnUnregisteredEmailAddress",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko123@.com\",\n    \"password\": \"Validpassword123!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginWithInputAnInvalidEmailAddressFormat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko1@.com\",\n    \"password\": \"Validpassword123!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginWithVeryLongPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko123@.com\",\n    \"password\": \"Validpassword1234567891011121314151617181920!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginWithVeryShortPassword",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniadjatniko123@.com\",\n    \"password\": \"V2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/login",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "allProductPrice",
+			"item": [
+				{
+					"name": "positiveScenario",
+					"item": [
+						{
+							"name": "getAllProductPriceWithToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/internal-price-list/",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"internal-price-list",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negativeScenario",
+					"item": [
+						{
+							"name": "getAllProductPriceWithoutInputAToken",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/internal-price-list/",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"internal-price-list",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProductPriceWithInputAnInvalidToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1213312njasdoiqhdnqjndoqo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/internal-price-list/",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"internal-price-list",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProductPriceWithIInvalidPageSize",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1213312njasdoiqhdnqjndoqo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/internal-price-list/",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"internal-price-list",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "uploadProductImage",
+			"item": [
+				{
+					"name": "positiveScenario",
+					"item": [
+						{
+							"name": "uploadProductImageWithValidFileFormat(.jpg)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "9",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "rustic pottery mug white",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1efc293a-dfa5-4560-a5d1-aa5abbdf7edc"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uploadProductImageWithValidFileFormat(.png)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Minimalist Pottery Mug",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1efc2968-e141-4b20-a78c-ce530c948f8a"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uploadProductImageWithValidFileFormat(.gif))",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Minimalist Pottery Mug",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1efc2968-e141-4b20-a78c-ce530c948f8a"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uploadProductImageWithValidFileFormat(.svg)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Mug",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1efc297d-fd2a-4930-ad55-2b40be3e022f"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negativeScenario",
+					"item": [
+						{
+							"name": "uploadProductImageWithLeavingTheFileEmpty",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Mug",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uploadProductImageWithFileSizeLimit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Mug",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/m/Downloads/cup-with-spoon.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uploadProductImageWithInvalidFileFormat(pdf)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguMzAuMTUwIiwiZXhwIjoxNzM1MTQ3Nzc2MTY3LCJpc193bXNfbWlncmF0ZWQiOnRydWUsImlzcyI6Imp1YmVsaW86b21uaTpsb2dpbiIsImF1ZCI6WyJqdWJlbGlvLW9tbmljaGFubmVsIl0sInR5cGUiOiJhdCIsImlhdCI6MTczNTEwNDU3NiwianRpIjoiZjgwMjc1NjMtZDgyYy00N2YwLWE0ZjUtZTk3NWVjYjFhYzZlIn0.Q7l59p0tcaQ-3oZTHJmptiq3rpzxOtSWxtWR8UvBs5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uid",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Mug",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "postman-cloud:///1efc298d-b45b-4190-8e81-2105c6d8cddd"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/upload-image",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"upload-image"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "deleteProduct",
+			"item": [
+				{
+					"name": "positiveScenario",
+					"item": [
+						{
+							"name": "deleteProductValid",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguOC4xNTciLCJleHAiOjE3MzUyNTQzNTE0MjQsImlzX3dtc19taWdyYXRlZCI6dHJ1ZSwiaXNzIjoianViZWxpbzpvbW5pOmxvZ2luIiwiYXVkIjpbImp1YmVsaW8tb21uaWNoYW5uZWwiXSwidHlwZSI6ImF0IiwiaWF0IjoxNzM1MjExMTUxLCJqdGkiOiJiYWUyODFmYS00NTMxLTQyNTUtYWRmNS1lZjgzYTQ0NzU0NGEifQ.56a-uUAOPRiuks0Oifai4yAegUSejD47wPg-GPswN8s",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ids\" : [\n        6\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/items/",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"items",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negativeScenario",
+					"item": [
+						{
+							"name": "deleteProductInvalid",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvcmUifQ.eyJpZCI6IlVTRVI6ZGFuaWFkamF0bmlrbzFAZ21haWwuY29tOjE5Mi4xNjguOC4xNTciLCJleHAiOjE3MzUyNTQzNTE0MjQsImlzX3dtc19taWdyYXRlZCI6dHJ1ZSwiaXNzIjoianViZWxpbzpvbW5pOmxvZ2luIiwiYXVkIjpbImp1YmVsaW8tb21uaWNoYW5uZWwiXSwidHlwZSI6ImF0IiwiaWF0IjoxNzM1MjExMTUxLCJqdGkiOiJiYWUyODFmYS00NTMxLTQyNTUtYWRmNS1lZjgzYTQ0NzU0NGEifQ.56a-uUAOPRiuks0Oifai4yAegUSejD47wPg-GPswN8s",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ids\" : [\n        \"enam\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api2.jubelio.com/inventory/items/",
+									"protocol": "https",
+									"host": [
+										"api2",
+										"jubelio",
+										"com"
+									],
+									"path": [
+										"inventory",
+										"items",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
